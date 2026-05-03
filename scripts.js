@@ -16,9 +16,12 @@ function saveApiKey() {
 
 async function pollPrediction(predictionId, statusEl) {
     while (true) {
-        const response = await fetch(`https://api.replicate.com/v1/predictions/${predictionId}`, {
-            headers: { 'Authorization': `Bearer ${apiKey}` }
+        const response = await fetch('/.netlify/functions/poll', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ predictionId, apiKey })
         });
+
         const prediction = await response.json();
 
         if (prediction.status === 'succeeded') {
