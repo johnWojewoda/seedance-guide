@@ -49,12 +49,13 @@ async function generateSection1() {
 
         const videoUrl = await pollPrediction(prediction.id, status);
 
-        output.innerHTML = `
-            <video controls autoplay loop>
-                <source src="${videoUrl}" type="video/mp4">
-            </video>
-            <a class="video-download" href="${videoUrl}" target="_blank">Download video</a>
-        `;
+output.innerHTML = `
+    <video controls autoplay loop>
+        <source src="${videoUrl}" type="video/mp4">
+    </video>
+    <a class="video-download" href="${videoUrl}" target="_blank">Download video</a>
+    <p class="video-warning">⚠️ Download your video now. This link is temporary — if you leave or refresh this page the video will be gone.</p>
+`;
         status.style.color = '#1D9E75';
         status.textContent = '✓ Video generated successfully!';
 
