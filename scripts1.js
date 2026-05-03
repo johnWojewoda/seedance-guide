@@ -28,20 +28,17 @@ async function generateSection1() {
     output.innerHTML = '';
 
     try {
-        const input = { prompt, duration, resolution, aspect_ratio };
+        const body = { prompt, duration, resolution, aspect_ratio, apiKey };
 
         if (imageFile) {
             const base64 = await fileToBase64(imageFile);
-            input.reference_images = [base64];
+            body.reference_images = [base64];
         }
 
-        const response = await fetch('https://api.replicate.com/v1/models/bytedance/seedance-2.0/predictions', {
+        const response = await fetch('/.netlify/functions/generate', {
             method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ input })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
         });
 
         const prediction = await response.json();
