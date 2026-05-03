@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera & Motion Control — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html" class="active">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Camera & Motion Control</h1>
+            <p>Most people waste Seedance 2.0 by ignoring camera language entirely. This section changes that.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>To use the live generators in this guide you will need your own Replicate API key. <a href="https://replicate.com/" target="_blank">Replicate</a> is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. A 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section2">
+
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Camera & Motion Control</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>Most people typing prompts into Seedance 2.0 use the word "cinematic" and hope for the best. That word means nothing to the model. What does work is real cinematography language — the same language a director uses on a film set.</p>
+                <p>Seedance 2.0 has been trained on real films. When you speak to it like a director, it responds like one. This section teaches you exactly how to do that.</p>
+            </div>
+
+            <div class="camera-concepts">
+
+                <div class="camera-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>Lens Types</h3>
+                        <p>The lens you specify changes everything — depth of field, compression, how the background relates to the subject. Two lenses every Seedance 2.0 creator should know first:</p>
+                        <div class="lens-grid">
+                            <div class="lens-card">
+                                <div class="lens-name">35mm Anamorphic</div>
+                                <div class="lens-desc">Wide, dramatic, movie-like. Creates horizontal lens flares and a distinctive widescreen feel. Best for establishing shots and action.</div>
+                                <div class="lens-example">"35mm anamorphic lens, wide establishing shot"</div>
+                            </div>
+                            <div class="lens-card">
+                                <div class="lens-name">85mm Prime</div>
+                                <div class="lens-desc">Tight, intimate, portrait-style. Compresses the background and isolates your subject beautifully. Best for close-ups and emotional moments.</div>
+                                <div class="lens-example">"85mm prime lens, shallow depth of field"</div>
+                            </div>
+                            <div class="lens-card">
+                                <div class="lens-name">Macro</div>
+                                <div class="lens-desc">Extreme close-up detail. Perfect for product reveals, textures, and detail shots that would be impossible with a standard lens.</div>
+                                <div class="lens-example">"macro lens, extreme close-up detail"</div>
+                            </div>
+                            <div class="lens-card">
+                                <div class="lens-name">24mm Wide</div>
+                                <div class="lens-desc">Immersive and expansive. Creates a sense of environment and scale. Great for landscapes, architecture, and POV shots.</div>
+                                <div class="lens-example">"24mm wide angle lens, expansive environment"</div>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Start with just 35mm anamorphic or 85mm prime until you are comfortable. Once you know how each one feels, experiment with the others.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="camera-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Camera Movements</h3>
+                        <p>Camera movement creates emotion. A slow push-in builds tension. A pull-out creates isolation. Seedance 2.0 understands these movements when you name them correctly.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Slow push-in</span>
+                                <span class="movement-desc">Camera moves slowly toward the subject. Builds tension and intimacy.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Pull-out</span>
+                                <span class="movement-desc">Camera moves away from subject. Creates isolation or reveals scale.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Tracking shot</span>
+                                <span class="movement-desc">Camera follows the subject from the side. Creates dynamic movement.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Orbit / 360</span>
+                                <span class="movement-desc">Camera circles the subject. Great for product reveals and character introductions.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">POV</span>
+                                <span class="movement-desc">First-person perspective. Immersive and visceral. Great for action sequences.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Handheld</span>
+                                <span class="movement-desc">Subtle shake and imperfection. Feels documentary and real. Great for emotional scenes.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Always combine a lens type with a movement. "85mm prime lens, slow push-in" gives Seedance 2.0 much more to work with than either one alone.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="camera-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Shot Types</h3>
+                        <p>Shot types tell Seedance 2.0 how much of the scene to show. Used correctly they control pacing and storytelling within a single generation.</p>
+                        <div class="shot-grid">
+                            <div class="shot-item">
+                                <span class="shot-name">Wide shot</span>
+                                <span class="shot-desc">Shows the full environment. Sets the scene.</span>
+                            </div>
+                            <div class="shot-item">
+                                <span class="shot-name">Medium shot</span>
+                                <span class="shot-desc">Waist up. The conversational standard.</span>
+                            </div>
+                            <div class="shot-item">
+                                <span class="shot-name">Close-up</span>
+                                <span class="shot-desc">Face or object fills the frame. High emotion.</span>
+                            </div>
+                            <div class="shot-item">
+                                <span class="shot-name">Extreme close-up</span>
+                                <span class="shot-desc">One detail fills the frame. Eyes, hands, objects.</span>
+                            </div>
+                            <div class="shot-item">
+                                <span class="shot-name">Overhead</span>
+                                <span class="shot-desc">Bird's eye view looking straight down.</span>
+                            </div>
+                            <div class="shot-item">
+                                <span class="shot-name">Low angle</span>
+                                <span class="shot-desc">Looking up at subject. Creates power and dominance.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Use shot types inside brackets to direct Seedance 2.0 like a film director: [Shot 1: Wide] then [Cut to: Close-up]. This is how you build a scene within one generation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="camera-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Bracketed Shot Commands</h3>
+                        <p>This is where camera control becomes truly powerful. Seedance 2.0 can generate multiple shots in a single 15-second generation — but only if you use the correct bracketed syntax to direct it.</p>
+                        <div class="example">
+                            <span class="example-label">Single shot</span>
+                            <p>[Shot 1: Wide] subject standing on clifftop, 35mm anamorphic, golden hour light</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Two shot sequence</span>
+                            <p>[Shot 1: Wide] subject walking through forest, tracking shot. [Cut to: Close-up] face emerging from shadow, 85mm prime, soft rim light</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Three shot sequence</span>
+                            <p>[Shot 1: Overhead] city at night, slow pull-back. [Cut to: Medium] figure on rooftop, 35mm anamorphic. [Cut to: Extreme close-up] eyes reflecting city lights below</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>For your first attempts stick to one or two shots maximum. Seedance 2.0 handles motion physics best in clips of 6-8 seconds. After 12 seconds it can start to lose consistency.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Camera & Motion prompt</div>
+                <p>[Shot 1: Wide] lone figure standing at edge of misty forest, 35mm anamorphic lens slow push-in, volumetric fog catching morning light. [Cut to: Close-up] 85mm prime, face turned upward, soft diffused light from above</p>
+            </div>
+
+            <div class="generator" id="generator2">
+
+                <div class="generator-header">
+                    <h3>Try it — Camera & Motion Generator</h3>
+                    <p>Build your prompt using the camera language above. It is best to start at low resolution, 480p — to prove the motion works before spending more.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <textarea
+                    id="prompt-2"
+                    rows="5"
+                    placeholder="[Shot 1: Wide] your scene here, 35mm anamorphic lens, slow push-in, volumetric lighting..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-2">
+                            <option value="5">5 seconds</option>
+                            <option value="8">8 seconds</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-2">
+                            <option value="480p">480p — test here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-2">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-2" onclick="generateSection2()">Generate Video</button>
+                <p class="generator-status" id="status-2"></p>
+                <div class="video-output" id="output-2"></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts2.js"></script>
+
+</body>
+</html>
