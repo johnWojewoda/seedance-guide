@@ -6,6 +6,7 @@
     <title>Seedance 2.0 — Cinematic AI Guide</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles1.css">
 </head>
 <body>
 
@@ -36,8 +37,8 @@
 
         <div id="api-key-section">
             <h2>Before You Begin</h2>
-            <p>To use the live generators in this guide you will need your own Replicate API key. <a href="https://replicate.com/">Replicate</a> is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. A 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
-            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/">Replicate</a> and create a free account. 2. Go to replicate.com/account/api-tokens. 3. Create a token and paste it below.</p>
+            <p>To use the live generators in this guide you will need your own Replicate API key. Replicate is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. One 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
             <input
                 type="password"
                 id="api-key-input"
@@ -199,7 +200,7 @@
                     </div>
                 </div>
 
-                <button id="generate-btn-1" onclick="generateSection1()">Generate Video — ~$0.20 at 480p</button>
+                <button id="generate-btn-1" onclick="generateSection1()">Generate Video</button>
                 <p class="generator-status" id="status-1"></p>
                 <div class="video-output" id="output-1"></div>
 
