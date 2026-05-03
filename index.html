@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seedance 2.0 — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+    <div id="nav-row1">
+        <div id="nav-brand">Cinematic AI</div>
+    </div>
+    <div id="nav-row2">
+        <ul id="nav-menu">
+            <li><a href="index.html" class="active">Five-Part Spine</a></li>
+            <li><a href="section2.html">Camera & Motion</a></li>
+            <li><a href="section3.html">Technical Settings</a></li>
+            <li><a href="section4.html">Multimodal Inputs</a></li>
+            <li><a href="section5.html">Character Consistency</a></li>
+            <li><a href="section6.html">Dialogue & Audio</a></li>
+            <li><a href="section7.html">Video Editing</a></li>
+            <li><a href="section8.html">Post-Production</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Seedance 2.0</h1>
+            <p>Most people using Seedance 2.0 are gambling with every generation. This guide changes that.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>To use the live generators in this guide you will need your own Replicate API key. <a href="https://replicate.com/">Replicate</a> is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. A 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/">Replicate</a> and create a free account. 2. Go to replicate.com/account/api-tokens. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section1">
+
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>The Five-Part Spine</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>Most people typing prompts into Seedance 2.0 are essentially gambling. They write a sentence, hit generate, spend $0.90, and hope for the best. That's the old way.</p>
+                <p>The Five-Part Spine is the prompting architecture that separates creators who get consistent, professional results from those who waste credits chasing lucky generations.</p>
+                <p>Every prompt you write in Seedance 2.0 should have these five parts — in this order:</p>
+            </div>
+
+            <div class="spine-parts">
+
+                <div class="spine-part">
+                    <div class="spine-number">1</div>
+                    <div class="spine-text">
+                        <h3>Subject Anchor</h3>
+                        <p>This is who or what your video is about. In Seedance 2.0, if you upload a reference image of a person or character, you refer to them as <strong>[Image1]</strong> in your prompt. This tells Seedance 2.0 to use that specific face and appearance throughout the entire video — not a random person it invents.</p>
+                        <div class="example">
+                            <span class="example-label">Example</span>
+                            <p>[Image1] standing at the edge of a rooftop...</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>If you don't upload a reference image yet, just describe your subject in detail instead. "A tall woman with short silver hair wearing a black leather jacket" works fine to start.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spine-part">
+                    <div class="spine-number">2</div>
+                    <div class="spine-text">
+                        <h3>Kinetic Action</h3>
+                        <p>This is what your subject is doing — and it needs to be specific. Seedance 2.0 responds much better to precise physical descriptions than vague ones. Vague actions produce wobbly, uncertain motion. Specific actions produce controlled, intentional movement.</p>
+                        <div class="example">
+                            <span class="example-label">Example</span>
+                            <p>slow deliberate walking gait, coat edge catching wind</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Avoid just saying "walking" or "standing". Add adverbs and physical detail — "slow deliberate walking gait" gives Seedance 2.0 much more to work with.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spine-part">
+                    <div class="spine-number">3</div>
+                    <div class="spine-text">
+                        <h3>Camera Logic</h3>
+                        <p>This is how Seedance 2.0 "sees" the scene. Instead of saying "cinematic" — which means nothing to the model — use real lens language that filmmakers use. Specifying a lens type fundamentally changes how Seedance 2.0 constructs depth, focus, and light in your video.</p>
+                        <div class="example">
+                            <span class="example-label">Example</span>
+                            <p>35mm anamorphic lens, slow push-in</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>35mm anamorphic = wide, dramatic, movie-like. 85mm prime = tight, intimate, portrait-style. Start with these two until you're comfortable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spine-part">
+                    <div class="spine-number">4</div>
+                    <div class="spine-text">
+                        <h3>Style & Lighting</h3>
+                        <p>Lighting is the single highest-impact variable in Seedance 2.0. A well-lit prompt can elevate an average scene into something that looks broadcast-ready. The key is to describe the physics of the light — not just the mood.</p>
+                        <div class="example">
+                            <span class="example-label">Example</span>
+                            <p>volumetric rim lighting from behind, soft blue ambient fill</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Instead of "dramatic lighting" try "hard rim light at 45 degrees casting long shadows". Instead of "golden hour" try "warm low-angle sunlight with long shadows and lens flare".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spine-part">
+                    <div class="spine-number">5</div>
+                    <div class="spine-text">
+                        <h3>Shot Transitions</h3>
+                        <p>Seedance 2.0 can generate up to 15 seconds of video in a single generation. That's enough for multiple shots — but only if you tell it exactly where to cut. Use bracketed commands to direct Seedance 2.0 like a real film director giving instructions to a crew.</p>
+                        <div class="example">
+                            <span class="example-label">Example</span>
+                            <p>[Shot 1: Wide] [Image1] on rooftop at night. [Cut to: Close-up] face lit by city glow below.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>For your first attempts, stick to one shot. Once you're comfortable with the Five-Part Spine, add a second shot using [Cut to:] and see what happens.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Five-Part Spine prompt</div>
+                <p>[Image1] slow deliberate walking gait coat edge catching wind, 35mm anamorphic lens slow push-in, volumetric rim lighting from behind soft blue ambient fill, [Cut to: Close-up] face reflected in rain-soaked glass</p>
+            </div>
+
+            <div class="generator" id="generator1">
+
+                <div class="generator-header">
+                    <h3>Try it — Five-Part Spine Generator</h3>
+                    <p>Build your prompt using all five parts above. Start at 480p — prove the motion works before spending more.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image1-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload a photo of your subject. Once uploaded, refer to them as [Image1] in your prompt.</p>
+                    <input type="file" id="image1-upload" accept="image/*" />
+                </div>
+
+                <textarea
+                    id="prompt-1"
+                    rows="5"
+                    placeholder="[Image1] slow deliberate walking gait, 35mm anamorphic, volumetric rim lighting, [Cut to: Close-up] face in shadow..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-1">
+                            <option value="5">5 seconds</option>
+                            <option value="8">8 seconds</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-1">
+                            <option value="480p">480p — test here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-1">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-1" onclick="generateSection1()">Generate Video — ~$0.20 at 480p</button>
+                <p class="generator-status" id="status-1"></p>
+                <div class="video-output" id="output-1"></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts1.js"></script>
+
+</body>
+</html>
