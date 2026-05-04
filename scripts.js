@@ -34,8 +34,3 @@ async function pollPrediction(predictionId, statusEl) {
         await new Promise(resolve => setTimeout(resolve, 3000));
     }
 }
-
-
-git add .
-git commit -m "Shorten API key section for section 2"
-git push
