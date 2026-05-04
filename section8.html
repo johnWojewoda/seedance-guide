@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Production — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles8.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html" class="active">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Post-Production & Optimization</h1>
+            <p>You are no longer pulling levers and hoping. You are in the director's chair. This final section shows you how to finish like a pro.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section8">
+
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2>Post-Production & Optimization</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>You started this guide in the casino — pulling levers, closing your eyes, praying for something usable. You are leaving it as a technical director. You understand the physics engine, the reference system, the character consistency rules, the budget discipline, the audio pipeline.</p>
+                <p>This final section is the quality assurance layer. Before any clip leaves your pipeline and gets shared, published, or delivered to a client, it must pass a systematic audit. This section gives you that audit — and the final optimization techniques that separate good AI video from broadcast-ready AI video.</p>
+            </div>
+
+            <div class="postprod-concepts">
+
+                <div class="postprod-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>The Final QA Checklist</h3>
+                        <p>Every sequence must pass this audit before final export. Run through each item systematically — not as a quick scan, but as a deliberate frame-by-frame review. One missed detail at this stage can destroy the illusion in the final cut.</p>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Anchor Audit</div>
+                                    <div class="check-desc">Are all immutable anchors present in every shot? Check nose rings, hair color, dominant hand, scars, tattoos, and specific accessories frame by frame.</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Feature Scan</div>
+                                    <div class="check-desc">Scrub through each clip looking for pose flips and disappearing accessories. Pay particular attention to the final 2-3 seconds where drift is most likely.</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Seed Consistency</div>
+                                    <div class="check-desc">If you used seed locking across multiple clips, confirm the seed remained consistent during any re-renders. A single unlocked re-render can break character consistency across the entire sequence.</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Cross-Shot Lighting</div>
+                                    <div class="check-desc">Check for sudden color temperature jumps or specular shifts between cuts. These are invisible during generation but jarring in the assembled sequence.</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Temporal Coherence</div>
+                                    <div class="check-desc">Confirm the physics did not turn to soup in the final 3 seconds. Watch the last quarter of each clip carefully — this is where memory buffer degradation shows up first.</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Audio Review</div>
+                                    <div class="check-desc">Listen to each clip's audio in isolation. Does it match what you asked for? Does it fight the visuals or support them? Is there unwanted music or birdsong?</div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-box">✓</div>
+                                <div class="check-content">
+                                    <div class="check-title">Vmake Enhancement</div>
+                                    <div class="check-desc">Has every approved clip been run through Vmake's 4K+ enhancer? Never deliver a raw 480p or 720p Seedance output without enhancement.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Do this checklist on a large screen, not a phone. Many drift artifacts are subtle at small sizes but immediately visible on a monitor. Always do your final QA at full resolution on the largest screen available.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postprod-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>When to Re-Generate vs When to Fix in Post</h3>
+                        <p>Not every problem requires a re-generation. Understanding which issues to fix in post-production versus which ones require going back to Seedance 2.0 is a crucial budget decision.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Fix in post</span>
+                                <span class="movement-desc">Soft edges, digital grain, waxy skin texture, minor color temperature inconsistencies, slight blurriness. These are Vmake jobs — not re-generation jobs.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Re-generate</span>
+                                <span class="movement-desc">Identity drift, pose flips, physics soup, mid-stride wardrobe changes, hallucinated characters, wrong subject in frame. These are prompt problems that no post tool can fix.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Refine the prompt first</span>
+                                <span class="movement-desc">Before re-generating, diagnose the exact cause of the problem. A re-generation with the same broken prompt produces the same broken result. Fix the prompt, then re-generate.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>If you are re-generating the same clip more than twice, stop. The problem is in the prompt architecture — not the model. Go back to the Five-Part Spine, audit each element, and identify exactly what is missing or broken before spending another credit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postprod-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Color Grading AI Video</h3>
+                        <p>AI-generated video responds differently to color grading than traditionally shot footage. The synthetic nature of the pixels means that aggressive grading can expose artifacts that were invisible in the raw output. A subtle grade almost always looks better than a heavy one.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Grade after Vmake</span>
+                                <span class="movement-desc">Always run Vmake enhancement before color grading. The enhancer fixes pixel-level artifacts that grading will otherwise amplify.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Avoid heavy contrast</span>
+                                <span class="movement-desc">Heavy contrast grades expose the synthetic noise in shadow areas. Keep contrast adjustments subtle and use Vmake's grain removal to clean shadows before grading.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Match across clips</span>
+                                <span class="movement-desc">Use the same LUT or grade on every clip in a sequence. Even slight variations in grade between clips will break the consistency you worked so hard to achieve in generation.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>The best AI video color grades are barely perceptible. You are not transforming the image — you are refining it. Aim for a grade that makes the viewer feel the scene, not one that announces itself visually.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postprod-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Your Director Era Toolkit</h3>
+                        <p>You have graduated from the slot machine era. Here is the complete toolkit of every resource referenced in this guide — the specialized tools that professional AI video creators use at each stage of their pipeline.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name"><a href="https://replicate.com" target="_blank">Replicate</a></span>
+                                <span class="movement-desc">API platform for running Seedance 2.0 programmatically. Where your generations happen.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name"><a href="https://vmake.ai" target="_blank">Vmake AI</a></span>
+                                <span class="movement-desc">AI video enhancer tuned specifically for synthetic video artifacts. 4K+ upscaling, edge sharpening, grain removal.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name"><a href="https://midjourney.com" target="_blank">Midjourney</a></span>
+                                <span class="movement-desc">Image generation for building consistent character reference sheets before entering the Seedance pipeline.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name"><a href="https://elevenlabs.io" target="_blank">ElevenLabs</a></span>
+                                <span class="movement-desc">AI voice generation for creating audio references for dialogue and voice tone matching in Seedance 2.0.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name"><a href="https://descript.com" target="_blank">Descript</a></span>
+                                <span class="movement-desc">Audio transcription and podcast editing. Use for transcribing reference audio before working with dialogue prompts.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">The complete director era workflow</div>
+                <p>Build character sheet in Midjourney → Generate ElevenLabs voice reference → Import both to Seedance 2.0 → Draft all clips at 480p with Five-Part Spine prompts → Run QA checklist on every clip → Re-generate any failed clips → Enhance all approved clips in Vmake 4K+ → Import to editor → Apply consistent grade → Add final audio mix → Export.</p>
+            </div>
+
+            <div class="generator" id="generator8">
+
+                <div class="generator-header">
+                    <h3>Try it — Final Generator</h3>
+                    <p>You have everything you need. Apply the complete workflow — Five-Part Spine, camera logic, character template, technical settings, audio guidance. This is your director's chair.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image8-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload your character reference image.</p>
+                    <input type="file" id="image8-upload" accept="image/*" />
+                    <div id="image-preview-container-8" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-8" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-8"
+                    rows="6"
+                    placeholder="Apply the complete workflow. Five-Part Spine. Camera logic. Character template. Negative anchors. Audio guidance. You are the director now."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-8">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-8">
+                            <option value="480p">480p — draft first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p — final render</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-8">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Audio</label>
+                        <select id="audio-8">
+                            <option value="false">Off — add in post</option>
+                            <option value="true">On — guide in prompt</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-8" onclick="generateSection8()">Generate Video</button>
+                <p class="generator-status" id="status-8"></p>
+                <div class="video-output" id="output-8"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section7.html" class="page-nav-back">← Back to Video Editing</a>
+            <div></div>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts8.js"></script>
+
+</body>
+</html>
