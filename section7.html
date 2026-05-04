@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles7.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html" class="active">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Video Editing</h1>
+            <p>A raw Seedance 2.0 generation is a digital negative. This section shows you how to turn it into a broadcast-ready asset.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section7">
+
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2>Video Editing & Post-Production Pipeline</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>Every raw Seedance 2.0 generation — no matter how well-crafted the prompt — is a digital negative. It contains the performance, the motion, the physics. But it lacks the broadcast polish that separates professional output from amateur AI video.</p>
+                <p>The best creators do not try to get a perfect final render directly from Seedance 2.0. Instead they assemble a pipeline of specialized tools — each one doing a specific job that Seedance 2.0 was never designed to do. This section walks you through that pipeline.</p>
+            </div>
+
+            <div class="editing-concepts">
+
+                <div class="editing-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>The Draft-Then-Polish Workflow</h3>
+                        <p>The most cost-effective way to produce professional AI video is to completely separate your drafting phase from your polishing phase. These are two distinct workflows that use different tools and operate at different costs.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Draft phase</span>
+                                <span class="movement-desc">Generate all your clips at 480p using Seedance 2.0. Prove the motion, timing, and composition. Fix problems while they are cheap. Never pay for 1080p until this phase is complete.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Polish phase</span>
+                                <span class="movement-desc">Once every clip is motion-stable at 480p, run them through an AI upscaler like Vmake. This gives you 4K quality at a fraction of the cost of re-rendering at native high resolution.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>A 480p clip run through Vmake's AI 4K+ enhancer will look better than a native 1080p render from Seedance 2.0 — and cost significantly less. The AI enhancer fixes problems that high-resolution rendering actually makes worse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editing-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Vmake AI — The Essential Post Tool</h3>
+                        <p>Vmake is not a standard upscaler that blindly multiplies pixels. It is an AI video enhancer specifically tuned to the artifacts of synthetic video. It knows what AI-generated video looks like at a mathematical level — and it targets those specific problems without requiring a full re-render.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">AI 4K+ Feature Remapping</span>
+                                <span class="movement-desc">More than upscaling — it remaps features to fix waxy skin texture, blurry faces, and soft edges in specific shots without re-generating the entire sequence.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Edge Sharpening</span>
+                                <span class="movement-desc">Removes the dreamy blur inherent in high-res AI output. Ensures crisp, clean cuts that hold up on professional displays.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Digital Grain Removal</span>
+                                <span class="movement-desc">Targets and removes the digital fizz that appears in shadows and dark areas of AI-generated video — one of the most visible signs of synthetic footage.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Watermark & Metadata Removal</span>
+                                <span class="movement-desc">Essential for professional and white-label work. Produces a clean export with no AI watermarks or embedded metadata.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Visit <a href="https://vmake.ai" target="_blank">vmake.ai</a> to access the upscaler. Run your 480p draft through the 4K+ enhancer before doing any color grading or audio work. Always enhance first, then grade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editing-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Building Character Reference Sheets</h3>
+                        <p>The most advanced creators do not build their character references inside Seedance 2.0 at all. They step outside the video ecosystem entirely and use specialized image generation models to create consistent, multi-angle character sheets before entering the animation pipeline.</p>
+                        <p>By generating a base anchor sheet — a set of perfectly matched character images from multiple angles, all with consistent lighting — you eliminate the risk of identity blend before a single frame of video is generated.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Midjourney</span>
+                                <span class="movement-desc">Use Midjourney's character reference feature to generate consistent multi-angle character sheets. Lock the character's appearance across front, profile, and three-quarter views before importing to Seedance 2.0.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Nano Banana Pro</span>
+                                <span class="movement-desc">Specialized tool for building consistent character sheets specifically designed for AI video pipelines. Produces reference images optimized for Seedance 2.0 ingestion.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>This workflow — generate character sheet outside Seedance, import to Seedance for motion, enhance with Vmake — is the professional pipeline. Each tool does one specific job it is optimized for. No single tool tries to do everything.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editing-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Assembling Multi-Clip Sequences</h3>
+                        <p>Seedance 2.0 generates individual clips of up to 15 seconds. A finished scene is almost always assembled from multiple clips edited together. The key to seamless assembly is generating each clip with the same seed, the same character template, and consistent lighting conditions — so the cuts feel invisible.</p>
+                        <div class="example">
+                            <span class="example-label">Clip assembly workflow</span>
+                            <p>1. Generate all clips at 480p with locked seed and identical character template. 2. Review all clips for consistency. 3. Re-generate any inconsistent clips at 480p. 4. Once all clips are approved, enhance all at once through Vmake. 5. Import enhanced clips to your editor and assemble.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Generate all clips before enhancing any of them. Enhancing clips one at a time and then discovering an earlier clip needs to be re-generated wastes significant time and money. Draft everything first, approve everything, then enhance in one batch.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete professional pipeline</div>
+                <p>Build character sheet in Midjourney → Import to Seedance 2.0 → Generate all clips at 480p with locked seed → Review and approve all clips → Enhance approved clips in Vmake 4K+ → Import to video editor → Add audio and color grade → Export final.</p>
+            </div>
+
+            <div class="generator" id="generator7">
+
+                <div class="generator-header">
+                    <h3>Try it — Video Editing Generator</h3>
+                    <p>Generate a clip using everything you have learned. Remember — draft at 480p, prove the motion, then enhance with Vmake.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image7-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload your character reference image.</p>
+                    <input type="file" id="image7-upload" accept="image/*" />
+                    <div id="image-preview-container-7" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-7" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-7"
+                    rows="5"
+                    placeholder="Apply everything you have learned. Five-Part Spine, camera logic, character template, negative anchors..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-7">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-7">
+                            <option value="480p">480p — draft here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-7">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Audio</label>
+                        <select id="audio-7">
+                            <option value="false">Off — add in post</option>
+                            <option value="true">On — guide in prompt</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-7" onclick="generateSection7()">Generate Video</button>
+                <p class="generator-status" id="status-7"></p>
+                <div class="video-output" id="output-7"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section6.html" class="page-nav-back">← Back to Dialogue & Audio</a>
+            <a href="section8.html" class="page-nav-next">Next: Post-Production →</a>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts7.js"></script>
+
+</body>
+</html>
