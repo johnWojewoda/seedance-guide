@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Consistency — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles5.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html" class="active">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Character Consistency</h1>
+            <p>Identity drift is the single biggest killer of professional AI video. This section shows you exactly how to stop it.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section5">
+
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Character Consistency</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>You have built a perfect Five-Part Spine prompt. Your camera logic is locked. Your technical settings are dialed in. And then by frame 40 of your video, your character's nose ring vanishes. By frame 67, their dominant hand flips. Their clothing changes slightly across cuts. The illusion shatters instantly.</p>
+                <p>This is identity drift — the subtle erosion of character-specific features that breaks immersion and makes your video look unprofessional. It is not random. It follows predictable patterns. And once you understand those patterns, you can engineer against them.</p>
+                <p>This section gives you the exact techniques the best creators use to maintain perfect character consistency across every shot.</p>
+            </div>
+
+            <div class="consistency-concepts">
+
+                <div class="consistency-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>The Four Drift Patterns</h3>
+                        <p>Identity drift is not random. It follows four specific patterns. Knowing which pattern you are seeing tells you exactly which technique to apply to fix it.</p>
+                        <div class="drift-grid">
+                            <div class="drift-card">
+                                <div class="drift-name">Feature Erosion</div>
+                                <div class="drift-desc">Small defining details — piercings, scars, jewelry, tattoos — disappear as the generation progresses. The model's memory buffer degrades and drops the smallest details first.</div>
+                                <div class="drift-fix">Fix: Negative anchors — explicitly forbid the model from dropping specific features.</div>
+                            </div>
+                            <div class="drift-card">
+                                <div class="drift-name">Pose Flip</div>
+                                <div class="drift-desc">The character's dominant hand or gaze direction mirrors across cuts. The AI struggles to maintain spatial orientation over time and flips the character's handedness.</div>
+                                <div class="drift-fix">Fix: Explicitly state dominant hand in your character block — "gestures with left hand only".</div>
+                            </div>
+                            <div class="drift-card">
+                                <div class="drift-name">Stylization Shift</div>
+                                <div class="drift-desc">Unintended changes in saturation, skin tone, or facial proportions across shots. Often caused by conflicting lighting data in reference images.</div>
+                                <div class="drift-fix">Fix: Use perfectly matched reference images with identical lighting conditions.</div>
+                            </div>
+                            <div class="drift-card">
+                                <div class="drift-name">Identity Blend</div>
+                                <div class="drift-desc">The model averages features from multiple contradictory references, producing a muddy, generic hybrid face. Caused by uploading too many reference images.</div>
+                                <div class="drift-fix">Fix: Maximum two reference images. One front facing, one profile. Matched lighting only.</div>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>When something goes wrong with your character's appearance, identify which of these four patterns you are seeing before trying to fix it. Each pattern has a specific solution — applying the wrong fix makes things worse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consistency-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Reference Hygiene — Less is More</h3>
+                        <p>Most beginners assume that when a character loses consistency, the solution is to upload more reference images. More photos from more angles so the model truly learns what the character looks like. This is exactly wrong — and it is one of the most common and expensive mistakes in AI video production.</p>
+                        <p>When you upload six photos from different angles, the model does not view them as a cohesive three-dimensional person. It views them as distinct data points. It calculates the exact distance between the eyes in photo A, photo B, and photo C. Because those photos are from slightly different angles, the measurements differ. The AI averages the data points together and produces a muddy, melted hybrid face.</p>
+                        <div class="example">
+                            <span class="example-label">The golden rule</span>
+                            <p>Maximum two reference images. One front-facing shot. One profile shot. Both must have perfectly matching lighting and color temperature.</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">What happens when you break this rule</span>
+                            <p>If you upload a warm indoor selfie and a cool outdoor professional headshot, the model will alternate the character's eye color and skin reflections across frames trying to reconcile the conflicting lighting data.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Take your two reference photos in the same location, at the same time, with the same lighting. Even small differences in color temperature between photos will cause the model to oscillate between two versions of your character's face.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consistency-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Prompt Mirroring</h3>
+                        <p>Restricting yourself to two matched reference photos is only half the solution. The other half is prompt mirroring — copying your exact character description word for word into every single shot prompt.</p>
+                        <p>The multi-shot engine in Seedance 2.0 treats any text variation, no matter how minor, as a command to generate a completely new character who just happens to look similar. If your subject anchor in shot one says "wearing a dark jacket" and in shot two you type "wearing a dark jacket slightly open" — you have just told the model to create a different character.</p>
+                        <div class="example">
+                            <span class="example-label">Correct prompt mirroring</span>
+                            <p>Shot 1: [Image1] wearing dark jacket, silver nose ring left nostril, gestures with left hand, slow walking gait...<br/>Shot 2: [Image1] wearing dark jacket, silver nose ring left nostril, gestures with left hand, turning to face camera...</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">What breaks consistency</span>
+                            <p>Shot 1: [Image1] wearing dark jacket...<br/>Shot 2: [Image1] in a charcoal coat... ← Different words = new character</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Create a character template — a locked block of text describing your character's immutable features. Copy and paste it identically into every shot prompt. Never paraphrase. Never abbreviate. Word for word, every time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consistency-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Negative Anchors</h3>
+                        <p>Positive description tells the model what your character looks like. Negative anchors tell the model what it is forbidden to forget. You are establishing hard boundaries on the physics engine's tendency to erode specific details.</p>
+                        <div class="example">
+                            <span class="example-label">Negative anchor syntax</span>
+                            <p>no missing piercings, no mirrored features, no right hand gestures, no changes to hair color, no softening of facial features</p>
+                        </div>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Immutable anchors</span>
+                                <span class="movement-desc">Features that must never change: gender, hair color, dominant hand, specific accessories like "left nostril ring", scars, tattoos. Lock these with both positive description AND negative anchors.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Flexible details</span>
+                                <span class="movement-desc">Background elements and specific gestures can vary between shots. Do not over-anchor these or the model will become too rigid and produce unnatural, stiff movement.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Focus your negative anchors on the smallest, most specific details — the ones that disappear first. A nose ring, a scar, a birthmark. The model's memory buffer drops these first. Anchor them explicitly and it will fight to keep them.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consistency-concept">
+                    <div class="concept-number">5</div>
+                    <div class="concept-text">
+                        <h3>Environmental Aesthetic Drift</h3>
+                        <p>There is a stranger phenomenon that even experienced creators often miss. Seedance 2.0 adapts the physical structure of your character to match the cinematic setting you place them in. The model has been trained on real films where certain environments correlate with certain character archetypes — and it applies those archetypes to your character's actual bone structure.</p>
+                        <p>Place your character in a dark neon-lit alleyway and the model will render their facial features more angular and harsh to fit the gritty action genre. Place that exact same character in a bright sunlit park and their jawline will soften and round out. It is acting like an overzealous cinematographer — altering the character's actual bone structure to match the vibe.</p>
+                        <div class="example">
+                            <span class="example-label">How to counter environmental drift</span>
+                            <p>Design environments that natively support your character's baseline aesthetic. Or explicitly anchor the character's physical features against the environment: "maintain consistent facial bone structure regardless of lighting environment, no angular hardening of features".</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>If you are placing the same character across very different environments in a multi-shot sequence, add an environmental drift anchor to your character template: "facial features remain consistent across all lighting conditions".</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Character Consistency template</div>
+                <p>[Image1] — character template: wearing dark jacket, silver nose ring left nostril, gestures with left hand, short silver hair, angular jaw. No missing piercings. No mirrored features. No right hand gestures. No changes to hair color. Facial features remain consistent across all lighting conditions.</p>
+            </div>
+
+            <div class="generator" id="generator5">
+
+                <div class="generator-header">
+                    <h3>Try it — Character Consistency Generator</h3>
+                    <p>Upload your reference image, build your character template, and test consistency across a multi-shot prompt. Start at 480p.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image5-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload your character reference. Remember — one front facing shot, one profile shot maximum. Matched lighting only.</p>
+                    <input type="file" id="image5-upload" accept="image/*" />
+                    <div id="image-preview-container-5" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-5" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-5"
+                    rows="6"
+                    placeholder="[Image1] wearing [exact description], [specific accessories], gestures with [dominant hand]. No missing [features]. No mirrored features. [Shot 1: Wide]..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-5">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-5">
+                            <option value="480p">480p — test here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-5">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-5" onclick="generateSection5()">Generate Video</button>
+                <p class="generator-status" id="status-5"></p>
+                <div class="video-output" id="output-5"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section4.html" class="page-nav-back">← Back to Multimodal Inputs</a>
+            <a href="section6.html" class="page-nav-next">Next: Dialogue & Audio →</a>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts5.js"></script>
+
+</body>
+</html>
