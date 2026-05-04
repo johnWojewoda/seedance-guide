@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogue & Audio — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles6.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html" class="active">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Dialogue & Audio</h1>
+            <p>Audio is not a post-production afterthought in Seedance 2.0. It is a physics input that shapes every frame before rendering begins.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section6">
+
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Dialogue & Audio</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>Most creators treat audio as something you add in post-production — slap a music track on in Premiere Pro and call it done. In Seedance 2.0, that approach leaves one of the most powerful features completely unused.</p>
+                <p>Sound in Seedance 2.0 is not a decoration. It is a physics input. You can instruct the model to analyze an audio waveform and literally cut the scene on the strong beats of a track. You can synchronize camera acceleration to an audio swell. You can match voice tone for dialogue generation. All of this happens before the first pixel is rendered.</p>
+                <p>And when it comes to dialogue — getting characters to speak naturally within Seedance 2.0's time constraints requires specific techniques that most creators never discover. This section covers all of it.</p>
+            </div>
+
+            <div class="audio-concepts">
+
+                <div class="audio-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>How Audio Works in Seedance 2.0</h3>
+                        <p>When you enable audio generation and provide guidance in your prompt, Seedance 2.0 analyzes the audio instructions before it begins rendering. The physics engine uses the audio rhythm to calculate the pacing of the entire scene — when to cut, when to accelerate the camera, when to hold on a face.</p>
+                        <p>This means audio is not added after the video is generated. It shapes the video as it is being generated. A scene with a fast beat reference will produce tighter, more rhythmic cuts. A scene with a slow ambient reference will produce longer, more contemplative movements.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">generate_audio: true</span>
+                                <span class="movement-desc">Audio generation is on by default. Always guide it explicitly in your prompt or Seedance 2.0 will invent whatever it thinks fits — usually generic background music you don't want.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">generate_audio: false</span>
+                                <span class="movement-desc">Disables audio entirely. Use this when you plan to add your own audio in post-production. Gives you a clean silent base render.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Never leave audio on without guiding it. "Soft wind rustling leaves, no music, no soundtrack" is far better than letting the model choose. An unguided audio generation almost always produces something that fights your visuals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Audio Prompt Syntax</h3>
+                        <p>Guiding audio in your text prompt follows the same physics-first principles as everything else in Seedance 2.0. Describe what the audio physically is — not the mood it creates. Specific physical descriptions produce specific audio. Vague mood descriptions produce generic noise.</p>
+                        <div class="example">
+                            <span class="example-label">Specific — use this approach</span>
+                            <p>soft wind rustling dry leaves, distant water flowing over stones, no music, no soundtrack</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Vague — avoid this</span>
+                            <p>peaceful ambient sound, calm atmosphere</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Explicit exclusions</span>
+                            <p>no music, no soundtrack, no birdsong, complete silence except for soft wind</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Seedance 2.0 defaults strongly to birdsong and generic background music. If you want neither, you must explicitly exclude both. "No music, no birdsong, soft wind only" is the minimum exclusion set for a clean natural ambient result.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Beat Synchronization</h3>
+                        <p>This is one of the most underused and most powerful features in Seedance 2.0. By uploading an audio reference file and instructing the model to sync to its waveform, you can make the physics engine calculate the entire rhythm of your scene before rendering begins. Camera cuts happen on the beat. Camera acceleration matches audio swells. The result is video that feels professionally edited — because it was, before a single frame was generated.</p>
+                        <div class="example">
+                            <span class="example-label">Beat sync syntax</span>
+                            <p>Use [Audio1] to time the scene cuts to the strong beats. When the audio swells at 4 seconds, accelerate the camera push-in to match the emotional weight.</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Full beat sync prompt</span>
+                            <p>[Image1] walking through neon-lit city, 35mm anamorphic. [Shot 1: Wide] 0-4 seconds slow push-in. [Cut to: Close-up] 4-8 seconds. Use [Audio1] to sync all cuts to the beat. Camera acceleration matches audio swell at 4 seconds.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>For beat sync to work well, upload a clean audio reference with a clear, consistent beat — not a complex orchestral piece where the beat is buried. A simple drum track or a song with a strong, predictable rhythm gives the model the clearest waveform to analyze.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Generating Dialogue</h3>
+                        <p>Getting characters to speak naturally in Seedance 2.0 is one of the hardest things to do well. The model wants to rush. Within a tight 6-8 second generation, characters will try to cram all their dialogue into the first few seconds — talking over each other, skipping natural pauses, producing robotic unnatural delivery.</p>
+                        <p>The solution is pause injection — a simple but highly specific technique discovered by JS FilmZ. You literally type pause commands directly into your dialogue block using parentheses. This acts as a hard stop command for the physics engine, physically freezing the character's mouth movements and forcing natural pacing.</p>
+                        <div class="example">
+                            <span class="example-label">Pause injection syntax</span>
+                            <p>Character says: "I have been waiting for you." (1 second pause) "I knew you would come."</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Full dialogue prompt with pause injection</span>
+                            <p>[Image1] standing in doorway, 85mm prime, soft rim light. Character says: "You should not have come here." (1 second pause) Looks away. (0.5 second pause) "But I am glad you did."</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>You are not directing a human actor who naturally pauses for dramatic effect. You are programming a system. You have to write the code for the silence. Every pause must be explicitly typed — the model will not add them on its own.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-concept">
+                    <div class="concept-number">5</div>
+                    <div class="concept-text">
+                        <h3>Dialogue with Audio References</h3>
+                        <p>For the most realistic dialogue generation, combine pause injection with an audio reference for voice tone. Upload a short audio clip of the voice you want to match — even a 5-10 second sample — and reference it in your prompt. The model will use the tonal qualities of that voice to shape the character's speech.</p>
+                        <div class="example">
+                            <span class="example-label">Voice tone reference syntax</span>
+                            <p>Use [Audio1] as the voice tone reference for [Image1]'s dialogue. Character says: "The city never sleeps." (1 second pause) "Neither do I."</p>
+                        </div>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Voice tone</span>
+                                <span class="movement-desc">Upload a voice recording to match the character's speech pattern, accent, and tonal quality.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Lip sync</span>
+                                <span class="movement-desc">Upload a reference audio of the exact dialogue you want spoken. The model will attempt to match mouth movements to the audio waveform.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>For lip sync to work accurately, the audio reference must be clean with no background music or noise. A dry vocal recording with no reverb gives the model the clearest waveform to map mouth movements to.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Dialogue & Audio prompt</div>
+                <p>[Image1] standing in neon-lit doorway, 85mm prime slow push-in. Use [Audio1] as voice tone reference. Character says: "You should not have come here." (1 second pause) Looks away slowly. (0.5 second pause) "But I am glad you did." Soft rain ambience only, no music, no soundtrack.</p>
+            </div>
+
+            <div class="generator" id="generator6">
+
+                <div class="generator-header">
+                    <h3>Try it — Dialogue & Audio Generator</h3>
+                    <p>Test your dialogue prompt with pause injection. Start at 480p and 6-8 seconds to keep the dialogue tight and natural.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image6-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload your character reference image.</p>
+                    <input type="file" id="image6-upload" accept="image/*" />
+                    <div id="image-preview-container-6" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-6" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-6"
+                    rows="6"
+                    placeholder='[Image1] standing in doorway, 85mm prime. Character says: "Your dialogue here." (1 second pause) "Second line here." Soft ambient sound only, no music...'
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-6">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-6">
+                            <option value="480p">480p — test here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-6">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Audio</label>
+                        <select id="audio-6">
+                            <option value="true">On — guide it in your prompt</option>
+                            <option value="false">Off — silent base render</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-6" onclick="generateSection6()">Generate Video</button>
+                <p class="generator-status" id="status-6"></p>
+                <div class="video-output" id="output-6"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section5.html" class="page-nav-back">← Back to Character Consistency</a>
+            <a href="section7.html" class="page-nav-next">Next: Video Editing →</a>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts6.js"></script>
+
+</body>
+</html>
