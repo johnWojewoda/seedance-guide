@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +12,22 @@
 <body>
 
     <nav id="navbar">
-    <div id="nav-row1">
-        <div id="nav-brand">Cinematic AI</div>
-    </div>
-    <div id="nav-row2">
-        <ul id="nav-menu">
-            <li><a href="index.html" class="active">Five-Part Spine</a></li>
-            <li><a href="section2.html">Camera & Motion</a></li>
-            <li><a href="section3.html">Technical Settings</a></li>
-            <li><a href="section4.html">Multimodal Inputs</a></li>
-            <li><a href="section5.html">Character Consistency</a></li>
-            <li><a href="section6.html">Dialogue & Audio</a></li>
-            <li><a href="section7.html">Video Editing</a></li>
-            <li><a href="section8.html">Post-Production</a></li>
-        </ul>
-    </div>
-</nav>
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html" class="active">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div id="app">
 
@@ -37,7 +38,7 @@
 
         <div id="api-key-section">
             <h2>Before You Begin</h2>
-            <p>To use the live generators in this guide you will need your own Replicate API key. Replicate is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. One 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p>To use the live generators in this guide you will need your own Replicate API key. <a href="https://replicate.com/" target="_blank">Replicate</a> is a platform that runs Seedance 2.0 programmatically. Creating an account is free — you only pay when you generate a video. One 5 second generation costs approximately $0.90. This price may change. You can check their documentation for the most up-to-date pricing. It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
             <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
             <input
                 type="password"
@@ -58,6 +59,7 @@
             <div class="section-intro">
                 <p>Most people typing prompts into Seedance 2.0 are essentially gambling. They write a sentence, hit generate, spend $0.90, and hope for the best. That's the old way.</p>
                 <p>The Five-Part Spine is the prompting architecture that separates creators who get consistent, professional results from those who waste credits chasing lucky generations.</p>
+                <p>Here is something most people don't know: Seedance 2.0 places its heaviest mathematical weight on the first 20 to 30 words of your prompt. If your subject isn't pinned down immediately, the physics engine has no gravity — it doesn't know what object to apply its calculations to, and it starts hallucinating new characters to fill the void.</p>
                 <p>Every prompt you write in Seedance 2.0 should have these five parts — in this order:</p>
             </div>
 
@@ -67,14 +69,19 @@
                     <div class="spine-number">1</div>
                     <div class="spine-text">
                         <h3>Subject Anchor</h3>
-                        <p>This is who or what your video is about. In Seedance 2.0, if you upload a reference image of a person or character, you refer to them as <strong>[Image1]</strong> in your prompt. This tells Seedance 2.0 to use that specific face and appearance throughout the entire video — not a random person it invents.</p>
+                        <p>This is who or what your video is about — and it must come first. Seedance 2.0 is built on a real world physics simulation engine. It needs to know immediately what object to apply its calculations to. If you start with the environment or the mood, the engine has no gravity and will invent characters to fill the void.</p>
+                        <p>If you upload a reference image of a person or character, refer to them as <strong>[Image1]</strong> in your prompt. This tells Seedance 2.0 to use that specific appearance throughout the entire video.</p>
                         <div class="example">
                             <span class="example-label">Example</span>
                             <p>[Image1] standing at the edge of a rooftop...</p>
                         </div>
+                        <div class="example">
+                            <span class="example-label">Without a reference image</span>
+                            <p>A tall woman with short silver hair wearing a black leather jacket, standing at the edge of a rooftop...</p>
+                        </div>
                         <div class="beginner-tip">
                             <span class="tip-label">Beginner tip</span>
-                            <p>If you don't upload a reference image yet, just describe your subject in detail instead. "A tall woman with short silver hair wearing a black leather jacket" works fine to start.</p>
+                            <p>If you start your prompt by describing the rain or the gloomy lighting before your subject, the AI is already lost. It will try to apply the physics of a human to the rain itself. Subject first — always.</p>
                         </div>
                     </div>
                 </div>
@@ -83,14 +90,22 @@
                     <div class="spine-number">2</div>
                     <div class="spine-text">
                         <h3>Kinetic Action</h3>
-                        <p>This is what your subject is doing — and it needs to be specific. Seedance 2.0 responds much better to precise physical descriptions than vague ones. Vague actions produce wobbly, uncertain motion. Specific actions produce controlled, intentional movement.</p>
+                        <p>This is what your subject is doing — and Seedance 2.0 does not respond to mood. It responds to physics. The engine needs hard physical verbs it can calculate vectors from. Soft transformation words give it nothing to simulate.</p>
+                        <div class="example">
+                            <span class="example-label">Hard verbs — use these</span>
+                            <p>drags, fractures, implodes, stretches, collapses, jerks, pivots, slams</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Soft words — avoid these</span>
+                            <p>"becomes", "turns into", "transforms", "feels like", "seems to"</p>
+                        </div>
                         <div class="example">
                             <span class="example-label">Example</span>
                             <p>slow deliberate walking gait, coat edge catching wind</p>
                         </div>
                         <div class="beginner-tip">
                             <span class="tip-label">Beginner tip</span>
-                            <p>Avoid just saying "walking" or "standing". Add adverbs and physical detail — "slow deliberate walking gait" gives Seedance 2.0 much more to work with.</p>
+                            <p>If you want a glass to shatter, don't write "the glass becomes dust" — the AI will just cross-fade the pixels like a cheap PowerPoint transition. Write "the glass fractures" or "the glass implodes". Hard verbs give the engine the vectors it needs to simulate actual movement.</p>
                         </div>
                     </div>
                 </div>
@@ -99,14 +114,14 @@
                     <div class="spine-number">3</div>
                     <div class="spine-text">
                         <h3>Camera Logic</h3>
-                        <p>This is how Seedance 2.0 "sees" the scene. Instead of saying "cinematic" — which means nothing to the model — use real lens language that filmmakers use. Specifying a lens type fundamentally changes how Seedance 2.0 constructs depth, focus, and light in your video.</p>
+                        <p>This is how Seedance 2.0 sees the scene. The word "cinematic" means nothing to the model. What does work is real lens language — the same language a director uses on a film set. Specifying a lens type fundamentally changes how Seedance 2.0 constructs depth, focus, and light in your video.</p>
                         <div class="example">
                             <span class="example-label">Example</span>
                             <p>35mm anamorphic lens, slow push-in</p>
                         </div>
                         <div class="beginner-tip">
                             <span class="tip-label">Beginner tip</span>
-                            <p>35mm anamorphic = wide, dramatic, movie-like. 85mm prime = tight, intimate, portrait-style. Start with these two until you're comfortable.</p>
+                            <p>35mm anamorphic = wide, dramatic, movie-like. 85mm prime = tight, intimate, portrait-style. Always combine a lens type with a movement — "85mm prime lens, slow push-in" gives Seedance 2.0 far more to work with than either one alone.</p>
                         </div>
                     </div>
                 </div>
@@ -115,14 +130,14 @@
                     <div class="spine-number">4</div>
                     <div class="spine-text">
                         <h3>Style & Lighting</h3>
-                        <p>Lighting is the single highest-impact variable in Seedance 2.0. A well-lit prompt can elevate an average scene into something that looks broadcast-ready. The key is to describe the physics of the light — not just the mood.</p>
+                        <p>Lighting is the single highest-impact variable in Seedance 2.0. A well-lit prompt can elevate an average scene into something that looks broadcast-ready. The key is to describe the physics of the light — not just the mood. Only after you have locked the subject, the movement, and the camera do you introduce your style and lighting flavor.</p>
                         <div class="example">
                             <span class="example-label">Example</span>
                             <p>volumetric rim lighting from behind, soft blue ambient fill</p>
                         </div>
                         <div class="beginner-tip">
                             <span class="tip-label">Beginner tip</span>
-                            <p>Instead of "dramatic lighting" try "hard rim light at 45 degrees casting long shadows". Instead of "golden hour" try "warm low-angle sunlight with long shadows and lens flare".</p>
+                            <p>Instead of "dramatic lighting" try "hard rim light at 45 degrees casting long shadows". Instead of "golden hour" try "warm low-angle sunlight with long shadows and lens flare". Describe the physics of the light, not the feeling it creates.</p>
                         </div>
                     </div>
                 </div>
@@ -131,14 +146,18 @@
                     <div class="spine-number">5</div>
                     <div class="spine-text">
                         <h3>Shot Transitions</h3>
-                        <p>Seedance 2.0 can generate up to 15 seconds of video in a single generation. That's enough for multiple shots — but only if you tell it exactly where to cut. Use bracketed commands to direct Seedance 2.0 like a real film director giving instructions to a crew.</p>
+                        <p>Seedance 2.0 can generate up to 15 seconds of video in a single generation — enough for multiple shots. But if you don't explicitly command the cuts, the AI will try to cram every action you described into the first two seconds. The result is hyper-speed, unnatural, jerky movement. Use bracketed commands to schedule exactly when each shot happens.</p>
                         <div class="example">
-                            <span class="example-label">Example</span>
+                            <span class="example-label">Basic cut</span>
                             <p>[Shot 1: Wide] [Image1] on rooftop at night. [Cut to: Close-up] face lit by city glow below.</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Timeline method</span>
+                            <p>0-4 seconds: slow push-in on subject. 4-8 seconds: camera orbits to profile view.</p>
                         </div>
                         <div class="beginner-tip">
                             <span class="tip-label">Beginner tip</span>
-                            <p>For your first attempts, stick to one shot. Once you're comfortable with the Five-Part Spine, add a second shot using [Cut to:] and see what happens.</p>
+                            <p>For your first attempts stick to one shot. Once you are comfortable with the Five-Part Spine, try the timeline method — give the engine a mechanical schedule of events with exact timestamps. It removes the AI's permission to guess.</p>
                         </div>
                     </div>
                 </div>
@@ -213,10 +232,9 @@
         </section>
 
         <div class="page-nav">
-    <div></div>
-    <a href="section2.html" class="page-nav-next">Next: Camera & Motion →</a>
-    
-</div>
+            <div></div>
+            <a href="section2.html" class="page-nav-next">Next: Camera & Motion →</a>
+        </div>
 
     </div>
 
