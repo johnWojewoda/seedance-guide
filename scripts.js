@@ -34,3 +34,8 @@ async function pollPrediction(predictionId, statusEl) {
         await new Promise(resolve => setTimeout(resolve, 3000));
     }
 }
+
+
+git add .
+git commit -m "Wording updates for section 2"
+git push

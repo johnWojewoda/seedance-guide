@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Settings — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <nav id="navbar">
+    <div id="nav-row1">
+        <div id="nav-brand">Cinematic AI</div>
+    </div>
+    <div id="nav-row2">
+        <ul id="nav-menu">
+            <li><a href="index.html">Five-Part Spine</a></li>
+            <li><a href="section2.html">Camera & Motion</a></li>
+            <li><a href="section3.html" class="active">Technical Settings</a></li>
+            <li><a href="section4.html">Multimodal Inputs</a></li>
+            <li><a href="section5.html">Character Consistency</a></li>
+            <li><a href="section6.html">Dialogue & Audio</a></li>
+            <li><a href="section7.html">Video Editing</a></li>
+            <li><a href="section8.html">Post-Production</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="app">
+
+    <header>
+        <h1>Technical Settings</h1>
+        <p>Most people never touch the technical settings in Seedance 2.0. The ones who do get dramatically better results for a fraction of the cost.</p>
+    </header>
+
+    <div id="api-key-section">
+        <h2>Before You Begin</h2>
+        <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+        <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+        <input
+            type="password"
+            id="api-key-input"
+            placeholder="Paste your Replicate API key here (r8_...)"
+        />
+        <button onclick="saveApiKey()">Save Key</button>
+        <p id="api-key-status"></p>
+    </div>
+
+    <section id="section3">
+
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Technical Settings</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>Most people generating AI video with Seedance 2.0 are burning through credits unnecessarily. They generate at high resolution to "see what it looks like", they push clips to 15 seconds because they want more footage, and they never run systematic tests before committing to a final render.</p>
+                <p>The technical settings are not just sliders and dropdowns. They are decisions that determine whether your physics engine runs clean or collapses into chaos. This section gives you the exact workflow the best creators use to protect their budgets and get consistent results.</p>
+            </div>
+
+            <div class="settings-concepts">
+
+                <div class="settings-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>The 6-8 Second Sweet Spot</h3>
+                        <p>Seedance 2.0 technically supports up to 15 seconds per generation. Most people assume longer is better. It is not. Testing across thousands of generations has revealed a hard truth: anything past 12 seconds drastically increases hallucinations.</p>
+                        <p>After the 12 second mark, the model's memory buffer gets overwhelmed. The environment starts drifting. Characters experience mid-stride wardrobe changes. Physics that were stable in the first 8 seconds turn to soup by second 13. The model is simply being forced to remember too many constraints for too long without fresh guidance.</p>
+                        <div class="example">
+                            <span class="example-label">The sweet spot</span>
+                            <p>6-8 seconds per generation. This mimics real filmmaking — an uninterrupted shot in a professional film rarely lasts longer than 8 seconds anyway.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>If you need a longer scene, generate multiple 6-8 second clips and edit them together rather than pushing one generation to 15 seconds. You will get far cleaner results and spend less per usable second of footage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Resolution Strategy — Draft Cheap, Polish Once</h3>
+                        <p>This is the single biggest budget mistake beginners make. They generate at 720p or 1080p from the start because they want to see their idea at full quality. The problem is that paying a premium to render at high resolution does not fix an unstable prompt. It just gives you a crisper mistake — a beautifully high-definition version of the uncanny valley.</p>
+                        <p>The correct workflow is to treat 480p as your dress rehearsal. If your kinetic action prompt is vague and the character's walking motion is unstable at 480p, it will be unstable at 1080p too. Fix the wobble while it is cheap. Then pay for the polish once the wireframe behaves correctly.</p>
+                        <div class="example">
+                            <span class="example-label">Resolution cost comparison</span>
+                            <p>480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90 per 5 second generation</p>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Correct workflow</span>
+                            <p>Draft at 480p → prove the motion is stable → lock the prompt → render once at 1080p</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Never generate at 1080p more than once per prompt. If the result isn't right, go back to 480p, fix the prompt, and test again. The cost difference between getting it wrong at 480p versus 1080p is enormous over time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>The 5-Run Sweep</h3>
+                        <p>Before you commit to any final render, you need to run a systematic diagnostic. The best creators call this the 5-run sweep — a disciplined workflow of changing one variable at a time to lock in stability before spending on quality.</p>
+                        <p>The trap beginners fall into is changing multiple variables at once. When something goes wrong — and it will — they have no idea which change caused the problem. The 5-run sweep removes that ambiguity entirely.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Step 1 — Duration</span>
+                                <span class="movement-desc">Test at 6 seconds vs 8 seconds to identify where drift begins. Lock the duration before touching anything else.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Step 2 — Aspect ratio</span>
+                                <span class="movement-desc">Confirm the composition holds in your chosen ratio. Lock it.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Step 3 — Motion stability</span>
+                                <span class="movement-desc">Verify the core kinetic action is stable at 480p. If not, refine the prompt and retest.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Step 4 — Lighting & style</span>
+                                <span class="movement-desc">Confirm the lighting holds consistently across the full duration. Lock it.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Step 5 — Final render</span>
+                                <span class="movement-desc">Only now bump to 720p or 1080p. Everything is locked. This is your one paid render.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Run every sweep step at 480p. Do not move to the next step until the current one is stable. This discipline will save you significant credits every single session.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Audio Settings</h3>
+                        <p>Seedance 2.0 generates synchronized audio by default — including background music, sound effects, and ambient noise. Most beginners leave this on and accept whatever the model produces. Professional creators treat audio as a deliberate technical decision, not an afterthought.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">generate_audio: true</span>
+                                <span class="movement-desc">Default setting. Seedance 2.0 will attempt to generate synchronized audio. Guide it explicitly in your prompt — "ambient birdsong only" or "soft wind sound, no music".</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">generate_audio: false</span>
+                                <span class="movement-desc">Disables audio generation entirely. Use this when you plan to add your own audio in post-production or when you want a completely silent base render.</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>If you leave audio on but don't guide it in your prompt, Seedance 2.0 will invent whatever it thinks fits the scene — usually generic background music you don't want. Either turn it off or be very explicit: "soft wind rustling leaves, no music, no soundtrack".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-concept">
+                    <div class="concept-number">5</div>
+                    <div class="concept-text">
+                        <h3>Seed Locking</h3>
+                        <p>Every generation in Seedance 2.0 uses a random seed by default — a number that initializes the physics engine's random state. This means two identical prompts will produce two different videos. Once you find a generation you like, locking the seed lets you make minor iterations without losing the core look you achieved.</p>
+                        <div class="example">
+                            <span class="example-label">How to use it</span>
+                            <p>When a generation looks right, note the seed number from the output. Set that seed in your next generation to use the same random initialization — then make small prompt adjustments to refine without starting from scratch.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Seed locking is most powerful for character consistency across multiple shots. Once you find a seed that renders your character correctly, lock it and use it for every shot in that scene.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Technical Settings workflow</div>
+                <p>Step 1: Draft at 480p, 6 seconds, 16:9. Step 2: Confirm motion is stable. Step 3: Lock duration and ratio. Step 4: Confirm lighting holds. Step 5: Render once at 1080p with generate_audio: false. Add your own audio in post.</p>
+            </div>
+
+            <div class="generator" id="generator3">
+
+                <div class="generator-header">
+                    <h3>Try it — Technical Settings Generator</h3>
+                    <p>Use this generator to run your own 5-run sweep. Start at 480p and work your way up only once the motion is stable.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image3-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload a photo of your subject. Once uploaded, refer to them as [Image1] in your prompt.</p>
+                    <input type="file" id="image3-upload" accept="image/*" />
+                    <div id="image-preview-container-3" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-3" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-3"
+                    rows="5"
+                    placeholder="Start with your Five-Part Spine prompt here at 480p to test stability..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-3">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                            <option value="12">12 seconds — danger zone</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-3">
+                            <option value="480p">480p — always start here</option>
+                            <option value="720p">720p — only when stable</option>
+                            <option value="1080p">1080p — final render only</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-3">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Audio</label>
+                        <select id="audio-3">
+                            <option value="true">On — guide it in your prompt</option>
+                            <option value="false">Off — silent base render</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-3" onclick="generateSection3()">Generate Video</button>
+                <p class="generator-status" id="status-3"></p>
+                <div class="video-output" id="output-3"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section2.html" class="page-nav-back">← Back to Camera & Motion</a>
+            <a href="section4.html" class="page-nav-next">Next: Multimodal Inputs →</a>
+        </div>
+
+</div>
+    <script src="scripts.js"></script>
+    <script src="scripts3.js"></script>
+</body>
+</html>
