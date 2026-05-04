@@ -309,3 +309,46 @@ button:disabled {
     font-size: 13px;
     color: #1D9E75;
 }
+
+.page-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 0 0;
+    border-top: 1px solid #222;
+    margin-top: 48px;
+}
+
+.page-nav-back {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+
+.page-nav-back:hover {
+    color: #fff;
+    border-color: #555;
+    text-decoration: none;
+}
+
+.page-nav-next {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 16px;
+    background: #1D9E75;
+    border: 1px solid #1D9E75;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+
+.page-nav-next:hover {
+    background: #178a64;
+    border-color: #178a64;
+    color: #fff;
+    text-decoration: none;
+}
