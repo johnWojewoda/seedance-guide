@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal Inputs — Cinematic AI Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles4.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div id="nav-row1">
+            <div id="nav-brand">Cinematic AI</div>
+        </div>
+        <div id="nav-row2">
+            <ul id="nav-menu">
+                <li><a href="index.html">Five-Part Spine</a></li>
+                <li><a href="section2.html">Camera & Motion</a></li>
+                <li><a href="section3.html">Technical Settings</a></li>
+                <li><a href="section4.html" class="active">Multimodal Inputs</a></li>
+                <li><a href="section5.html">Character Consistency</a></li>
+                <li><a href="section6.html">Dialogue & Audio</a></li>
+                <li><a href="section7.html">Video Editing</a></li>
+                <li><a href="section8.html">Post-Production</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <header>
+            <h1>Multimodal Inputs</h1>
+            <p>Most creators only use text prompts. The ones who master multimodal inputs are operating on a completely different level.</p>
+        </header>
+
+        <div id="api-key-section">
+            <h2>Before You Begin</h2>
+            <p>It is safe to use your API key on this page. It is never stored anywhere — it only lives in your browser while you have this page open.</p>
+            <p id="api-key-steps">Steps: 1. Go to <a href="https://replicate.com/" target="_blank">Replicate</a> and create a free account. 2. Go to <a href="https://replicate.com/account/api-tokens" target="_blank">replicate.com/account/api-tokens</a>. 3. Create a token and paste it below.</p>
+            <input
+                type="password"
+                id="api-key-input"
+                placeholder="Paste your Replicate API key here (r8_...)"
+            />
+            <button onclick="saveApiKey()">Save Key</button>
+            <p id="api-key-status"></p>
+        </div>
+
+        <section id="section4">
+
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Multimodal Inputs</h2>
+            </div>
+
+            <div class="section-intro">
+                <p>This is where the barrier between traditional filmmaking and generative AI completely dissolves. Seedance 2.0 is not just a text-to-video model. It processes text, images, video, and audio all simultaneously — evaluating every reference file you provide to dictate every single frame of your generation.</p>
+                <p>By using the reference syntax in your prompt, you can upload up to 12 reference files per generation: up to 9 images, 3 videos, and 3 audio files. But uploading assets without giving them explicit jobs in your prompt is like hiring a film crew and letting them do whatever they want on set. The result is chaos — the model will try to mash the visual contents of all your files together.</p>
+                <p>The critical concept to master here is that you are not uploading pixels. You are uploading logic. You are extracting the physics, the motion vectors, the camera behavior, the audio rhythm — and applying them to your scene.</p>
+            </div>
+
+            <div class="multimodal-concepts">
+
+                <div class="multimodal-concept">
+                    <div class="concept-number">1</div>
+                    <div class="concept-text">
+                        <h3>The Reference Syntax</h3>
+                        <p>Every reference file you upload gets a numbered tag based on its type. You must call these tags explicitly in your prompt to assign each file a specific job. If you don't call them, the model ignores them or worse — blends them all together.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">[Image1] — [Image9]</span>
+                                <span class="movement-desc">Reference images. Use for character appearance, costume, material textures, first frame pins, and style references.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">[Video1] — [Video3]</span>
+                                <span class="movement-desc">Reference videos. Use for camera movement replication, body motion and blocking, transition rhythm, and style transfer.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">[Audio1] — [Audio3]</span>
+                                <span class="movement-desc">Reference audio files. Use for voice tone matching, ambient mood, and beat timing for synchronized cuts.</span>
+                            </div>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Correct syntax — always assign a job</span>
+                            <p>Use [Image1] as the character costume reference. Use [Video1] as the camera movement reference. Use [Audio1] to set the beat timing for scene cuts.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Never upload a reference file without explicitly calling it in your prompt and assigning it a specific job. An unassigned reference is not neutral — it actively interferes with your generation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multimodal-concept">
+                    <div class="concept-number">2</div>
+                    <div class="concept-text">
+                        <h3>Extracting Logic, Not Pixels</h3>
+                        <p>This is the most revolutionary concept in Seedance 2.0 and the one most beginners completely miss. When you reference a video, the model does not copy the visual content of that video into your scene. It mathematically isolates the kinetic vectors — the invisible wireframe of how objects move and accelerate — and applies that physics blueprint to your subject.</p>
+                        <p>Think of it this way: imagine a video of a wizard's staff shattering into glowing puzzle pieces that scatter in the wind. When you tell Seedance 2.0 to use that video for transition logic, it ignores the colors, the lighting, and the wizard entirely. It extracts only the movement math — the acceleration curves, the scatter vectors, the timing. You can then apply that exact physics blueprint to a completely different subject.</p>
+                        <div class="example">
+                            <span class="example-label">Logic extraction in practice</span>
+                            <p>Upload a video of a complex shatter effect. In your prompt write: "Use [Video1] for the transition physics only. Apply that movement logic to [Image1] — a ceramic coffee cup on a marble surface."</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>You are directing the physics engine using visual data instead of text. The more specific you are about which aspect of the reference to extract — camera movement, body motion, transition rhythm — the more precisely the model will apply it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multimodal-concept">
+                    <div class="concept-number">3</div>
+                    <div class="concept-text">
+                        <h3>Image References</h3>
+                        <p>Image references are the most commonly used multimodal input. They serve several distinct purposes in Seedance 2.0 — and understanding which job to assign them changes your results dramatically.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Character appearance</span>
+                                <span class="movement-desc">The most common use. Upload a photo of your subject and reference it as [Image1] in your prompt to anchor their face and appearance throughout the generation.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Costume & material</span>
+                                <span class="movement-desc">Upload a texture or fabric reference and assign it specifically: "Use [Image2] as the costume texture reference for the character's jacket."</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">First frame pin</span>
+                                <span class="movement-desc">Upload an image to use as the exact starting frame of your video. The generation will begin from that composition and animate forward.</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Style reference</span>
+                                <span class="movement-desc">Upload an image with a specific visual style and assign it: "Use [Image3] for the overall color palette and lighting style only."</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>The maximum is 9 images but more is not better. Reference hygiene — using fewer, higher quality, specifically assigned references — produces far cleaner results than flooding the model with data. See Section 5 for the full character consistency rules.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multimodal-concept">
+                    <div class="concept-number">4</div>
+                    <div class="concept-text">
+                        <h3>Video References</h3>
+                        <p>Video references are where multimodal input becomes truly powerful. You can upload up to 3 reference videos with a total duration of up to 15 seconds each. The model extracts the motion logic and applies it to your scene — not the visual content.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Camera movement</span>
+                                <span class="movement-desc">Upload a video with a specific camera move — a complex dolly shot, a drone sweep, a handheld run — and reference it: "Use [Video1] for the camera movement path only."</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Body motion & blocking</span>
+                                <span class="movement-desc">Upload a video of a specific physical performance and transfer that motion to your character: "Use [Video1] as the body movement reference for [Image1]."</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Transition rhythm</span>
+                                <span class="movement-desc">Upload a video with a specific editing rhythm and apply its cut timing to your generation: "Use [Video1] for the transition pacing and cut rhythm only."</span>
+                            </div>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>When using a video reference for camera movement, find a video where the camera move is clean and isolated — not mixed with complex subject movement. The cleaner the reference, the more precisely the model can extract the motion logic.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multimodal-concept">
+                    <div class="concept-number">5</div>
+                    <div class="concept-text">
+                        <h3>Audio References</h3>
+                        <p>Audio is no longer just a post-production afterthought. In Seedance 2.0 you can upload up to 3 reference audio files and use them to dictate the mood, beat timing, and even voice tone of your generation — before the first pixel is rendered.</p>
+                        <div class="movement-list">
+                            <div class="movement-item">
+                                <span class="movement-name">Beat timing</span>
+                                <span class="movement-desc">Upload a music track and instruct the model to analyze the waveform and cut the scene on the strong beats: "Use [Audio1] to time the scene cuts to the beat."</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Ambient mood</span>
+                                <span class="movement-desc">Upload an ambient soundscape to set the overall audio atmosphere: "Use [Audio1] as the ambient sound reference for the scene."</span>
+                            </div>
+                            <div class="movement-item">
+                                <span class="movement-name">Voice tone</span>
+                                <span class="movement-desc">Upload a voice recording to match the tone for dialogue generation: "Use [Audio1] as the voice tone reference for the character's dialogue."</span>
+                            </div>
+                        </div>
+                        <div class="example">
+                            <span class="example-label">Audio beat sync in practice</span>
+                            <p>[Image1] walking through neon lit city, 35mm anamorphic. Use [Audio1] to sync camera cuts to the beat. When the audio swells at 4 seconds accelerate the push-in to match the emotional weight.</p>
+                        </div>
+                        <div class="beginner-tip">
+                            <span class="tip-label">Beginner tip</span>
+                            <p>Audio references ensure the physics engine calculates the rhythm of the scene before it even begins rendering the first pixel. This is one of the most underused features in Seedance 2.0 — most creators don't know it exists.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full-example">
+                <div class="full-example-label">Complete Multimodal prompt</div>
+                <p>Use [Image1] as the character appearance reference. Use [Video1] for the camera movement path only — extract the dolly movement logic and apply it to this scene. [Image1] walking through misty forest, 35mm anamorphic, volumetric morning light. Use [Audio1] to sync the camera acceleration to the beat at 4 seconds.</p>
+            </div>
+
+            <div class="generator" id="generator4">
+
+                <div class="generator-header">
+                    <h3>Try it — Multimodal Generator</h3>
+                    <p>Upload a reference image and write a prompt that assigns it an explicit job. Start at 480p to test the reference logic before spending more.</p>
+                </div>
+
+                <div class="generator-cost">
+                    Estimated cost: 480p ~$0.20 · 720p ~$0.50 · 1080p ~$0.90
+                </div>
+
+                <div class="reference-upload">
+                    <label for="image4-upload">Reference Image — [Image1] (optional)</label>
+                    <p>Upload a photo of your subject. Once uploaded, refer to them as [Image1] in your prompt and assign it a specific job.</p>
+                    <input type="file" id="image4-upload" accept="image/*" />
+                    <div id="image-preview-container-4" style="display:none;">
+                        <div class="image-preview-label">[Image1]</div>
+                        <img id="image-preview-4" src="" alt="Reference image preview" />
+                    </div>
+                </div>
+
+                <textarea
+                    id="prompt-4"
+                    rows="5"
+                    placeholder="Use [Image1] as the character appearance reference. [Image1] walking through..."
+                ></textarea>
+
+                <div class="generator-controls">
+                    <div class="control-group">
+                        <label>Duration</label>
+                        <select id="duration-4">
+                            <option value="6">6 seconds — sweet spot</option>
+                            <option value="8">8 seconds — sweet spot</option>
+                            <option value="10">10 seconds</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Resolution</label>
+                        <select id="resolution-4">
+                            <option value="480p">480p — test here first</option>
+                            <option value="720p">720p</option>
+                            <option value="1080p">1080p</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Aspect Ratio</label>
+                        <select id="aspect-4">
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="1:1">1:1 Square</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn-4" onclick="generateSection4()">Generate Video</button>
+                <p class="generator-status" id="status-4"></p>
+                <div class="video-output" id="output-4"></div>
+
+            </div>
+
+        </section>
+
+        <div class="page-nav">
+            <a href="section3.html" class="page-nav-back">← Back to Technical Settings</a>
+            <a href="section5.html" class="page-nav-next">Next: Character Consistency →</a>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="scripts4.js"></script>
+
+</body>
+</html>
